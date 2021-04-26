@@ -17,7 +17,7 @@ const createManager = () => {
         const managerName = userInput.managerName.split(" ");
         //create new manager instance from userInput
         const manager = new Manager(managerName[0], managerName[1]);
-
+        //TODO: write manager HTML To page
         inquirer.prompt([
             {
                 type: 'input',
