@@ -1,4 +1,4 @@
-const Employee = require('./Employees')
+const Employee = require('./Employee')
 
 class Salesperson extends Employee {
     constructor(name, email, github, id, title) {
@@ -8,5 +8,7 @@ class Salesperson extends Employee {
     }
 }
 
-const sal1 = new Salesperson('Dwight', 'Schrute', 'SchruteFarms')
-console.log(sal1);
+// const sal1 = new Salesperson('Dwight', 'Schrute', 'SchruteFarms')
+// console.log(sal1);
+
+module.exports = Salesperson

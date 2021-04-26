@@ -1,4 +1,4 @@
-const Employee = require('./Employees')
+const Employee = require('./Employee')
 
 //this is a child class called Manager, which is a child of employee
 class Manager extends Employee {
@@ -9,6 +9,8 @@ class Manager extends Employee {
     }
 }
 
-const man1 = new Manager('Dwight', 'Schrute')
-console.log(man1);
 
+// const man1 = new Manager('Dwight', 'Schrute')
+// console.log(man1);
+
+module.exports = Manager
