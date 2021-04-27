@@ -18,7 +18,7 @@ const createManager = () => {
         //create new manager instance from userInput
         const manager = new Manager(managerName[0], managerName[1]);
         //TODO: WRITE MANAGER HTML
-
+        const HTML = manager.makeHTML();
     })
 }
 
@@ -42,7 +42,8 @@ const createUnderling = () => {
                     
                     console.log("\n Creating Salesperson... \n", salesperson, "\n");
                     
-                    //TODO: write salesperson HTML
+                    //make salesperson HTML
+                    const HTML = salesperson.makeHTML();
 
                     createUnderling();           //run function again to ask if user wants another team member
                 });
@@ -59,7 +60,8 @@ const createUnderling = () => {
                     console.log("\n Creating Intern... \n", intern, "\n");
                     
                     //TODO: write intern HTML
-
+                    const HTML = intern.makeHTML();
+                    console.log(HTML);
                     createUnderling();           //run function again to ask if user wants another team member
                 })
                 break;

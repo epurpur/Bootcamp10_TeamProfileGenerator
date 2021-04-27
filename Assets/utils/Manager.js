@@ -7,6 +7,22 @@ class Manager extends Employee {
         this.title = 'Manager';
         this.officeNumber = Math.floor(Math.random() * 10);
     }
+
+    makeHTML() {
+    //makes HTML from object properties 
+        return `
+        <div class="card" style="width: 18rem;">
+            <div class="card-body manager-card">
+                <h5 class="card-title">Name: ${this.getName()}</h5>
+                <p class="card-text">Title: ${this.title}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Employee ID: ${this.id}</li>
+                <li class="list-group-item">Email: ${this.email}</li>
+                <li class="list-group-item">Office #: ${this.officeNumber}</li>
+            </ul>
+            </div>`
+    }
 }
 
 
