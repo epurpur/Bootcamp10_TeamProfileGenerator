@@ -34,6 +34,7 @@ const createUnderling = () => {
         switch(underling) {
             case 'Salesperson':
                 inquirer.prompt(inquirerQuestions.salespersonQuestions)  // asks user to input info about salesperson
+
                 .then((userInput) => {
                     //create instance of Salesperson class
                     const salespersonName = userInput.salespersonName.split(" ");
@@ -46,8 +47,10 @@ const createUnderling = () => {
                     createUnderling();           //run function again to ask if user wants another team member
                 });
                 break;
+
             case 'Intern':
                 inquirer.prompt(inquirerQuestions.internQuestions)   //asks user to input info about intern
+                
                 .then((userInput) => {
                     //create instance of Intern class
                     const internName = userInput.internName.split(" ");
@@ -60,6 +63,7 @@ const createUnderling = () => {
                     createUnderling();           //run function again to ask if user wants another team member
                 })
                 break;
+
             case 'None':
                 break;                  //user doesn't want any more team members, exit loop
         }

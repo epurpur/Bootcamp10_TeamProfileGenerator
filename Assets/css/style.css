@@ -5,10 +5,10 @@
     justify-content: center;
 }
 
-.card {
-    margin: 10px;
-}
+.card {margin: 10px;}
 
-.card-body {
-    background-color: rgb(167, 167, 255);
-}
+.manager-card {background-color: rgb(196, 90, 90);}
+
+.salesperson-card {background-color: rgb(167, 167, 255);}
+
+.intern-card {background-color: rgb(91, 184, 164);}
