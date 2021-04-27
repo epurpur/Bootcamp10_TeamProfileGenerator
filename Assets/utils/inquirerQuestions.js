@@ -14,6 +14,7 @@ exports.underlingQuestion = {
     name: 'underling',
     message: 'Choose an employee type to add to your team: ',
     choices: [
+        'Manager',
         'Salesperson',
         'Intern',
         'None'

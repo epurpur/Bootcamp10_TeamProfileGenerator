@@ -1,6 +1,8 @@
 //Imported modules
 const inquirer = require('inquirer');
-const fs = require('fs');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 
 const inquirerQuestions = require('./Assets/utils/inquirerQuestions.js')
 const Manager = require('./Assets/utils/Manager');
@@ -8,22 +10,13 @@ const Salesperson = require('./Assets/utils/Salesperson');
 const Intern = require('./Assets/utils/Intern')
 
 
-const createManager = () => {
-//Creates manager for team using user input
-
-    inquirer.prompt(inquirerQuestions.managerQuestion)  //asks user for manager name
-
-    .then((userInput) => {
-        const managerName = userInput.managerName.split(" ");
-        //create new manager instance from userInput
-        const manager = new Manager(managerName[0], managerName[1]);
-        //TODO: WRITE MANAGER HTML
-        const HTML = manager.makeHTML();
-    })
-}
 
 
-const createUnderling = () => {
+const teamArray = [//this will be an array of strings]
+//take objects in array and assemble them into a template literal which will be written to an HTML document
+
+
+const createEmployee = () => {
 //prompts user to add underlings (salespeople and interns) to team
 
     inquirer.prompt(inquirerQuestions.underlingQuestion)  // asks if user wants to add salesperson or intern
@@ -32,6 +25,25 @@ const createUnderling = () => {
         const underling = userInput.underling;
 
         switch(underling) {
+            case 'Manager':
+                inquirer.prompt(inquirerQuestions.managerQuestion)
+
+                .then((userInput) => {
+                    const managerName = userInput.managerName.split(" ");
+                    
+                    //create new manager instance from userInput
+                    const manager = new Manager(managerName[0], managerName[1]);
+                    
+                    console.log("\n Creating Manager... \n", manager, "\n");
+
+                    //make manager HTML
+                    const managerHTML = manager.makeHTML();
+
+                    //run function again
+                    createEmployee();
+                });
+                break; 
+
             case 'Salesperson':
                 inquirer.prompt(inquirerQuestions.salespersonQuestions)  // asks user to input info about salesperson
 
@@ -43,9 +55,10 @@ const createUnderling = () => {
                     console.log("\n Creating Salesperson... \n", salesperson, "\n");
                     
                     //make salesperson HTML
-                    const HTML = salesperson.makeHTML();
+                    const salespersonHTML = salesperson.makeHTML();
 
-                    createUnderling();           //run function again to ask if user wants another team member
+                    //run function again
+                    createEmployee();           //run function again to ask if user wants another team member
                 });
                 break;
 
@@ -59,21 +72,25 @@ const createUnderling = () => {
                     
                     console.log("\n Creating Intern... \n", intern, "\n");
                     
-                    //TODO: write intern HTML
-                    const HTML = intern.makeHTML();
-                    console.log(HTML);
-                    createUnderling();           //run function again to ask if user wants another team member
+                    //make intern HTML
+                    const internHTML = intern.makeHTML();
+
+                    //run function again
+                    createEmployee();           
                 })
                 break;
 
             case 'None':
-                break;                  //user doesn't want any more team members, exit loop
+                //user doesn't want any more team members, exit loop
+                break;                  
         }
     })
 }
 
-// createManager();
-createUnderling();
+createEmployee();
 
-//TODO: DELETE HTML OF PREVIOUS EMPLOYEES FROM INDEX.HTML WHEN STARTING UP
+
+
+
+
 
