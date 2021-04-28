@@ -8,8 +8,8 @@ class Manager extends Employee {
         this.officeNumber = Math.floor(Math.random() * 10);
     }
 
+    //makes HTML for manager card
     makeHTML() {
-    //makes HTML from object properties 
         return `
 
         <div class="card" style="width: 18rem;">

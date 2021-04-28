@@ -7,6 +7,7 @@ class Intern extends Employee {
         this.school = school;
     }
 
+    //makes HTML for intern card
     makeHTML() {
         return `
         <div class="card" style="width: 18rem;">

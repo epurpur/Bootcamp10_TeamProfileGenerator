@@ -7,6 +7,7 @@ class Salesperson extends Employee {
         this.github = `github.com/${github}`;
     }
 
+    //makes HTML for salesperson card
     makeHTML() {
         return `
         <div class="card" style="width: 18rem;">
