@@ -38,7 +38,7 @@ exports.internQuestions = [
     {
         type: 'input',
         name: 'internName',
-        message: 'Enter Itern Name: '
+        message: 'Enter Intern Name: '
     },
     {
         type: 'input',
