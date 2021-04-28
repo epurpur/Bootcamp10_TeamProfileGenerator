@@ -7,6 +7,7 @@ const Manager = require('./Assets/utils/Manager');
 const Salesperson = require('./Assets/utils/Salesperson');
 const Intern = require('./Assets/utils/Intern')
 
+
 //array of strings of final HTML document
 const teamArray = [
 `<!DOCTYPE html>
@@ -74,7 +75,7 @@ const createEmployee = () => {
                     //make manager HTML
                     const managerHTML = manager.makeHTML();
 
-                    //append html to 'team array'
+                    //insert HTML into teamArray at position of teamArrayCounter
                     teamArray.splice(teamArrayCounter, 0, managerHTML);
                     teamArrayCounter++;
 
@@ -96,7 +97,7 @@ const createEmployee = () => {
                     //make salesperson HTML
                     const salespersonHTML = salesperson.makeHTML();
 
-                    //append html to 'team array'
+                    //insert HTML into teamArray at position of teamArrayCounter
                     teamArray.splice(teamArrayCounter, 0, salespersonHTML);
                     teamArrayCounter++;
 
@@ -118,7 +119,7 @@ const createEmployee = () => {
                     //make intern HTML
                     const internHTML = intern.makeHTML();
 
-                    //append html to 'team array'
+                    //insert HTML into teamArray at position of teamArrayCounter
                     teamArray.splice(teamArrayCounter, 0, internHTML);
                     teamArrayCounter++;
 
@@ -129,13 +130,13 @@ const createEmployee = () => {
 
             case 'None':
                 //join together all elements of teamArray
-                const finalHTML = teamArray.join()
-
+                let finalHTML = teamArray.join()
+                finalHTML = finalHTML.replace(/,/g,'');   //replace erroneous commas with nothing
+                
                 //user doesn't want any more team members
                 //write final output to HTML file
-                fs.writeFile('README.html', finalHTML, (error) =>
-                error ? console.log('Error!') : console.log('Success!'));  //error handling is a required argument
-            
+                fs.writeFile('MyTeam.html', finalHTML, (error) =>
+                error ? console.log('Error!') : console.log(`Output written to file: MyTeam.html`));  //error handling is a required argument
                 break;                  
         }
     })
