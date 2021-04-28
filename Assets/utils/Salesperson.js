@@ -17,8 +17,8 @@ class Salesperson extends Employee {
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Employee ID: ${this.id}</li>
-            <li class="list-group-item">Email: ${this.email}</li>
-            <li class="list-group-item">Github: ${this.github}</li>
+            <li class="list-group-item">Email: <a href="mailto:${this.email}">${this.email}</a></li>
+            <li class="list-group-item">Github: <a href="https://github.com/epurpur/Bootcamp10_TeamProfileGenerator" target="_blank">${this.github}</a></li>
         </ul>
         </div>`
     }
