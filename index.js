@@ -1,19 +1,54 @@
 //Imported modules
 const inquirer = require('inquirer');
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
+const fs = require('fs');
 
 const inquirerQuestions = require('./Assets/utils/inquirerQuestions.js')
 const Manager = require('./Assets/utils/Manager');
 const Salesperson = require('./Assets/utils/Salesperson');
 const Intern = require('./Assets/utils/Intern')
 
+//array of strings of final HTML document
+const teamArray = [
+`<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>  <!-- Import bootstrap stylesheet -->
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <title>Work Day Scheduler</title>
+  </head>
 
+  <body>
+    <main>
 
+        <section id='header-section'>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Team Profile Generator</h1>
+                    <p class="lead">View info about your employees</p>
+                </div>
+            </div>
+        </section>
 
-const teamArray = [//this will be an array of strings]
-//take objects in array and assemble them into a template literal which will be written to an HTML document
+        <section id='card-section'>`,
+        
+    //next item
+    `        </section>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>   <!--Bootstrap js file-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> <!--Bootstrap js file-->
+    <script src="script.js"></script>
+  </body>
+</html>`
+
+]
+
+//used as index number to insert cards into HTML string
+let teamArrayCounter = 1;
 
 
 const createEmployee = () => {
@@ -39,6 +74,10 @@ const createEmployee = () => {
                     //make manager HTML
                     const managerHTML = manager.makeHTML();
 
+                    //append html to 'team array'
+                    teamArray.splice(teamArrayCounter, 0, managerHTML);
+                    teamArrayCounter++;
+
                     //run function again
                     createEmployee();
                 });
@@ -56,6 +95,10 @@ const createEmployee = () => {
                     
                     //make salesperson HTML
                     const salespersonHTML = salesperson.makeHTML();
+
+                    //append html to 'team array'
+                    teamArray.splice(teamArrayCounter, 0, salespersonHTML);
+                    teamArrayCounter++;
 
                     //run function again
                     createEmployee();           //run function again to ask if user wants another team member
@@ -75,22 +118,30 @@ const createEmployee = () => {
                     //make intern HTML
                     const internHTML = intern.makeHTML();
 
+                    //append html to 'team array'
+                    teamArray.splice(teamArrayCounter, 0, internHTML);
+                    teamArrayCounter++;
+
                     //run function again
                     createEmployee();           
                 })
                 break;
 
             case 'None':
-                //user doesn't want any more team members, exit loop
+                //join together all elements of teamArray
+                const finalHTML = teamArray.join()
+
+                //user doesn't want any more team members
+                //write final output to HTML file
+                fs.writeFile('README.html', finalHTML, (error) =>
+                error ? console.log('Error!') : console.log('Success!'));  //error handling is a required argument
+            
                 break;                  
         }
     })
 }
 
+
 createEmployee();
-
-
-
-
 
 

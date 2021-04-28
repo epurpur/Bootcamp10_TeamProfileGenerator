@@ -11,6 +11,7 @@ class Manager extends Employee {
     makeHTML() {
     //makes HTML from object properties 
         return `
+
         <div class="card" style="width: 18rem;">
             <div class="card-body manager-card">
                 <h5 class="card-title">Name: ${this.getName()}</h5>
@@ -21,7 +22,9 @@ class Manager extends Employee {
                 <li class="list-group-item">Email: ${this.email}</li>
                 <li class="list-group-item">Office #: ${this.officeNumber}</li>
             </ul>
-            </div>`
+            </div>
+            
+            `
     }
 }
 

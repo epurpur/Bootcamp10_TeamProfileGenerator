@@ -10,14 +10,14 @@ class Intern extends Employee {
     makeHTML() {
         return `
         <div class="card" style="width: 18rem;">
-        <div class="card-body salesperson-card">
+        <div class="card-body intern-card">
             <h5 class="card-title">Name: ${this.getName()}</h5>
             <p class="card-text">Title: ${this.title}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Employee ID: ${this.id}</li>
             <li class="list-group-item">Email: ${this.email}</li>
-            <li class="list-group-item">Github: ${this.school}</li>
+            <li class="list-group-item">School: ${this.school}</li>
         </ul>
         </div>`
     }
