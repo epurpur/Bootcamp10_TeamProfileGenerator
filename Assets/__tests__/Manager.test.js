@@ -15,7 +15,7 @@ test("Can use getOffice method to get office number", () => {
     expect(typeof i.getOffice()).toBe('number');
 });
 
-test("office number should be a number between 0-100", () => {
+test("office number should be a number between 0-10", () => {
     const i = new Manager("Jan", "Levinson");
     expect(i.officeNumber).toBeGreaterThan(0);
     expect(i.officeNumber).toBeLessThan(11);
