@@ -1,7 +1,7 @@
 const Employee = require('./Employee')
 
 class Salesperson extends Employee {
-    constructor(name, email, github, id, title) {
+    constructor(name, email, github, id) {
         super(name, email, id)
         this.title = 'Salesperson';
         this.github = `github.com/${github}`;
@@ -26,5 +26,7 @@ class Salesperson extends Employee {
 
 // const sal1 = new Salesperson('Dwight', 'Schrute', 'SchruteFarms')
 // console.log(sal1);
+// console.log(sal1.github);
+// console.log(sal1.id);
 
 module.exports = Salesperson
