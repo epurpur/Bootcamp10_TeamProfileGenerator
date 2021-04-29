@@ -8,6 +8,16 @@ class Manager extends Employee {
         this.officeNumber = Math.floor(Math.random() * 10);
     }
 
+    getRole() {
+        //gets role of 'Manager'
+        return this.title;
+    }
+
+    getOffice() {
+        //gets office number of manager
+        return this.officeNumber;
+    }
+
     //makes HTML for manager card
     makeHTML() {
         return `

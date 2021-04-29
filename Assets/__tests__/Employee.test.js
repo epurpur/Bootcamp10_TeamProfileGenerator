@@ -5,35 +5,30 @@ test("Can instantiate Employee instance", () => {
   expect(typeof(e)).toBe("object");
 });
 
-test("Can set first and last name via constructor arguments", () => {
-  const first = "Alice";
-  const last = "inWonderLand"
+test("Can get employee name via getName() method", () => {
+  const first = "Pam";
+  const last = "Beasley";
   const e = new Employee(first, last);
-  expect(e.first).toBe(first);
-  expect(e.last).toBe(last);
+  expect(e.getName()).toBe(`${first} ${last}`);
 });
 
-test("employee id should be number", () => {
-  const e = new Employee("Foo", "Bar");
+
+test("Can get employee id number with getID() method", () => {
+  const e = new Employee("Phyllis", "Vance");
   expect(typeof e.id).toBe('number')
 });
 
 test("employee id should be a number between 0-100", () => {
-  const e = new Employee("Foo", "Bar");
+  const e = new Employee("Angela", "Martin");
   expect(e.id).toBeGreaterThan(0);
   expect(e.id).toBeLessThan(101);
 });
 
-test("Check if email should be combination of firstname + lastname + @Dundermifflin.com", () => {
-  const first = "foo";
-  const last = "bar";
+
+test("Can get email with getEmail method", () => {
+  const first = "Stanley";
+  const last = "Hudson";
   const e = new Employee(first, last);
   expect(e.email).toBe(`${first}${last}@dundermifflin.com`);
 });
 
-test("Can get employee name via getName() method", () => {
-  const first = "Michael";
-  const last = "Scott";
-  const e = new Employee(first, last);
-  expect(e.getName()).toBe(`${first} ${last}`);
-});

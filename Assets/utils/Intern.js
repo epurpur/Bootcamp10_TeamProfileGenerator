@@ -7,6 +7,16 @@ class Intern extends Employee {
         this.school = school;
     }
 
+    getRole() {
+        //returns title of 'Intern'
+        return this.title;
+    }
+
+    getSchool() {
+        //returns intern's school
+        return this.school;
+    }
+
     //makes HTML for intern card
     makeHTML() {
         return `

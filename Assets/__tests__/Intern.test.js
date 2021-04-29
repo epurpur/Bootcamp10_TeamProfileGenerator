@@ -5,9 +5,15 @@ test("Can instantiate Intern class", () => {
     expect(typeof(i)).toBe("object");
 })
 
-test("Intern title should be 'Intern' ", () => {
-    const i = new Intern();
-    expect(i.title).toBe('Intern');
+test("Can use getRole method to get title of 'Intern' ", () => {
+    const i = new Intern('Clark', 'Shelk', 'Scranton College');
+    expect(i.getRole()).toBe('Intern');
+});
+
+test("Can use getSchool method to get school name", () => {
+    const schoolName = 'Scranton College';
+    const i = new Intern('Clark', 'Shelk', schoolName);
+    expect(i.getSchool()).toBe(schoolName);
 });
 
 test("Intern school should contain the word 'college' or 'university'", () => {
@@ -18,7 +24,6 @@ test("Intern school should contain the word 'college' or 'university'", () => {
     //assertions for each case
     expect(collegeCheck).toBeTruthy();
     expect(uniCheck).toBeTruthy();
-
 });
 
 

@@ -7,6 +7,16 @@ class Salesperson extends Employee {
         this.github = `github.com/${github}`;
     }
 
+    getRole() {
+        //returns role of 'salesperson'
+        return this.title; 
+    }
+
+    getGithub() {
+        //returns github URL
+        return this.github;
+    }
+
     //makes HTML for salesperson card
     makeHTML() {
         return `

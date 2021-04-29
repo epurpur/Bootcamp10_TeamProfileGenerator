@@ -5,18 +5,18 @@ test("Can instantiate Salesperson class", () => {
     expect(typeof(s)).toBe("object");
 })
 
-test(" Salesperson title should be 'Salesperson' ", () => {
-    const github = 'schruteFarms';
-    const s = new Salesperson("Dwight","Schrute",github);
-
-    expect(s.title).toBe('Salesperson');
-});
-
 test("Github username should be 'github.com/githubUsername' ", () => {
     const github = 'schruteFarms';
     const s = new Salesperson("Dwight","Schrute",github);
 
-    expect(s.github).toBe(`github.com/${github}`);
+    expect(s.getGithub()).toBe(`github.com/${github}`);
+});
+
+test("Can get salesperson role of 'Salesperson' ", () => {
+    const github = 'schruteFarms';
+    const s = new Salesperson("Dwight","Schrute", github);
+
+    expect(s.getRole()).toBe("Salesperson");
 });
 
 test("Can get string of HTML for employee card with makeHTML()", () => {
