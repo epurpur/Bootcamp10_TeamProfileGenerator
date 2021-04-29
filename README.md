@@ -47,5 +47,5 @@
   
   The result of running this application will be an HTML which looks something like this:
   
-  
+  ![](./Assets/TeamProfile.png)
   
