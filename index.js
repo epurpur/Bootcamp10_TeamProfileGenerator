@@ -18,7 +18,7 @@ const teamArray = [
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>  <!-- Import bootstrap stylesheet -->
     <link rel="stylesheet" href="./Assets/css/style.css" />
-    <title>Work Day Scheduler</title>
+    <title>Team Profile Generator</title>
   </head>
 
   <body>
