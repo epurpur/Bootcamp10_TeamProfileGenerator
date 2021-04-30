@@ -15,17 +15,17 @@ class Employee {
 
     getID() {
     //returns employee ID
-        return `${this.id}`;
+        return this.id;
     }
 
     getEmail() {
     //returns employee email
-        return `${this.email}`;
+        return this.email;
     }
 
     getRole() {
     //returns 'Employee'
-        return `${this.title}`;
+        return this.title;
     }
 }
 
